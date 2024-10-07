@@ -1,5 +1,6 @@
-// require('dotenv').config({path: './env'})
-import dotenv from "dotenv"
+// require('dotenv').config({path: './env'})      // not a good practice because it breaks the consistancy of code.
+
+import dotenv from "dotenv"      
 import connectDB from "./db/index.js";
 import {app} from './app.js'
 dotenv.config({
@@ -19,15 +20,12 @@ connectDB()
 })
 
 
-
-
-
-
-
-
-
+// database always should be in try catch method
 
 /*
+import mongoose from 'mongoose';
+import {DB_NAME} from './constrants';
+
 import express from "express"
 const app = express()
 ( async () => {

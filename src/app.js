@@ -4,12 +4,12 @@ import cookieParser from "cookie-parser"
 
 const app = express()
 
-app.use(cors({
-    origin: process.env.CORS_ORIGIN,
+app.use(cors({                            
+    origin: process.env.CORS_ORIGIN,        // from where can accept request from frontend 
     credentials: true
 }))
 
-app.use(express.json({limit: "16kb"}))
+app.use(express.json({limit: "16kb"}))      // accept json file with limit
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())

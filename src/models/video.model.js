@@ -1,5 +1,6 @@
 import mongoose, {Schema} from "mongoose";
-import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2"; /* a plugin that adds pagination functionality to Mongoose aggregate queries. 
+Pagination allows you to fetch records in chunks (pages), which is useful when dealing with large datasets.*/
 
 const videoSchema = new Schema(
     {
@@ -38,10 +39,11 @@ const videoSchema = new Schema(
 
     }, 
     {
-        timestamps: true
+        timestamps: true //  automatically adds two fields to the schema: createdAt and updatedAt. 
+                         // These fields record the creation and modification times of each video document, so you don't need to manage them manually.
     }
 )
 
-videoSchema.plugin(mongooseAggregatePaginate)
+videoSchema.plugin(mongooseAggregatePaginate)   // By adding this plugin, you can easily paginate the results when querying large sets of video documents (for example, when displaying videos on a website).
 
 export const Video = mongoose.model("Video", videoSchema)
